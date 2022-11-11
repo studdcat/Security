@@ -5,7 +5,7 @@ https://wordpress.org/about/stats/
 
 https://www.youtube.com/user/ngnicky1209
 <br><br>
-![img1](./../../img/37-WordPress-security-statistics-1.png)
+![img1](../img/37-WordPress-security-statistics-1.png)
 <br>
 <h2>WordPress 보안 및 해킹 시도</h2>
 <p>처음부터 WordPress는 세계에서 가장 인기 있는 콘텐츠 관리 시스템(CMS) 중 하나가 되었습니다. 그 인기는 축복이기도 하고 저주이기도 합니다. 
