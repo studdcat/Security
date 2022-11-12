@@ -32,10 +32,10 @@ share</h2>
 <ul>
 enum4linux -a -u "" -p "" <'dc-ip'> &&
 enum4linux -a -u "guest" -p "" <'dc-ip'>
-
+<br>
 smbmap -u "" -p "" -P 445 -H <'dc-ip'> &&
 smbmap -u "guest" -p "" -P 445 -H <'dc-ip'>
-
+<br>
 smbclient -U '%' -L //<'dc-ip'> && smbclient -U '
 guest%' -L //<'dc-ip'>
 
