@@ -8,7 +8,7 @@ https://portswigger.net/web-security/xxe
 ![](../img/XXE-processing.png)
 
 <br>
-XML External Entity의 줄임말로 XML 타입의 데이터 요청을 전송할 때 XML의 외부엔티티를 처리할 수 있게 설정되어 있는 경우 발생하는 취약점이다.
+XML External Entity의 줄임말로 XML 타입의 데이터 요청을 전송할 때 XML Parser가 XML의 외부엔티티를 처리할 수 있게 설정되어 있는 경우 발생하는 취약점이다.
 <br><br>
 내부 엔티티는 문서 내에 값을 명시한다.
 <br>
