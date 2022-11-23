@@ -1,8 +1,8 @@
 # Command Injection_01
 
-https://www.youtube.com/watch?time_continue=339&v=GDUadTiXXVk&feature=emb_title
-
 https://portswigger.net/web-security/os-command-injection/lab-simple
+
+https://www.youtube.com/watch?time_continue=339&v=GDUadTiXXVk&feature=emb_title
 
 ## Question
 이 Lab에는 제품 재고 검사기 의 OS Command Injection 취약점이 포함되어 있습니다.
@@ -17,3 +17,18 @@ https://portswigger.net/web-security/os-command-injection/lab-simple
 3. 응답에 현재 사용자의 이름이 포함되어 있는지 확인합니다.
 
 ## Process
+재고 검사기(stock level)를 proxy 했다.
+
+![](../img/Command%20Injection_01_01.png)
+
+productId storeId 두개의 파라미터 값이 보였다.
+
+![](../img/Command%20Injection_01_02.png)
+
+productId storeId 중에 produtId에 Command Injection 공격 구문을 넣어 봤다.
+
+![](../img/Command%20Injection_01_03.png)
+
+공격이 잘 성공된 모습이다.
+
+![](../img/Command%20Injection_01_04.png)
