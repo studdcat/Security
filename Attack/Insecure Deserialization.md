@@ -1,7 +1,9 @@
 # Insecure Deserialization (안전하지 않은 역 직렬화)
 
 https://portswigger.net/web-security/deserialization
+
 https://cybersecuritykong.tistory.com/18
+
 https://rsy99.tistory.com/61
 
 ### -- 2017 OWASP TOP 10 --
