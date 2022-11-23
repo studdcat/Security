@@ -7,6 +7,7 @@ https://pentestmonkey.net/category/cheat-sheet/sql-injection - cheat sheet
 <br><br>
 SQL Injection 이란 악의적인 사용자가 보안상의 취약점을 이용하여, 임의의 SQL 문을 주입하고 실행되게 하여 데이터베이스가 비정상적인 동작을 하도록 조작하는 행위이다.
 <br>
+
 ### -- 2021 OWASP TOP 10 --
 A03: Injection (인젝션)
 SQL, NoSQL, OS 명령, ORM(Object Relational Mapping), LDAP, EL(Expression Language) 또는 OGNL(Object Graph Navigation Library) 인젝션 취약점은 신뢰할 수 없는 데이터가 명령어나 쿼리문의 일부분으로써, 인터프리터로 보내질 때 취약점이 발생합니다. 
