@@ -11,7 +11,7 @@ HTTP 헤더는 일반적으로 웹 브라우저가 서버에 요청하고(Reques
 
 Example 1.
 ```
-/board_view.php?num=5%0D%0A [~~~]
+/board_view.php?num=5 **%0D%0A** [~~~]
 ```
 
 ## 대응방안
