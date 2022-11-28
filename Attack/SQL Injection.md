@@ -13,6 +13,16 @@ A03: Injection (인젝션)
 SQL, NoSQL, OS 명령, ORM(Object Relational Mapping), LDAP, EL(Expression Language) 또는 OGNL(Object Graph Navigation Library) 인젝션 취약점은 신뢰할 수 없는 데이터가 명령어나 쿼리문의 일부분으로써, 인터프리터로 보내질 때 취약점이 발생합니다. 
 <br>
 
+## 공격구문
+```
+'
+' or 1=1 --
+' or 1=0 --
+' and db_name() > 1 --
+```
+
+<br>
+
 ## 대응방안
 ### # 매개변수 바인딩 & 저장프로시저 & prepared statement
 <br>
