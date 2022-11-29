@@ -1,24 +1,62 @@
 # SQL Injection
 https://blog.naver.com/skinfosec2000/220482240245
-<br>
+
 https://ssunws.tistory.com/44
-<br>
+
+
+https://noirstar.tistory.com/264
+
 https://pentestmonkey.net/category/cheat-sheet/sql-injection - cheat sheet
-<br><br>
-SQL Injection 이란 악의적인 사용자가 보안상의 취약점을 이용하여, 임의의 SQL 문을 주입하고 실행되게 하여 데이터베이스가 비정상적인 동작을 하도록 조작하는 행위이다.
+
 <br>
+
+![](../img/SQL%20Injection%20-%20process.png)
 
 ### -- 2021 OWASP TOP 10 --
 A03: Injection (인젝션)
-SQL, NoSQL, OS 명령, ORM(Object Relational Mapping), LDAP, EL(Expression Language) 또는 OGNL(Object Graph Navigation Library) 인젝션 취약점은 신뢰할 수 없는 데이터가 명령어나 쿼리문의 일부분으로써, 인터프리터로 보내질 때 취약점이 발생합니다. 
+SQL, NoSQL, OS 명령, ORM(Object Relational Mapping), LDAP, EL(Expression Language) 또는 OGNL(Object Graph Navigation Library) 인젝션 취약점은 신뢰할 수 없는 데이터가 명령어나 쿼리문의 일부분으로써, 인터프리터로 보내질 때 취약점이 발생한다.
+
 <br>
 
-## 공격구문
+SQL Injection 이란 악의적인 사용자가 보안상의 취약점을 이용하여, 임의의 SQL 문을 주입하고 실행되게 하여 데이터베이스가 비정상적인 동작을 하도록 조작하는 행위이다.
+
+<br>
+
+## Error based SQL Injection
+SQL 공격 기법은 여러 가지가 있는데 논리적 에러를 이용한 SQL Injection은 가장 많이 쓰이고, 대중적인 공격 기법이다.
+
+![](../img/SQL%20Injection%20-%20process%20-%202.png)
+
+위의 사진에서 보이는 쿼리문은 일반적으로 로그인 시 많이 사용되는 SQL 구문이다. 해당 구문에서 입력값에 대한 검증이 없음을 확인하고, 악의적인 사용자가 임의의 SQL 구문을 주입하였다. 주입된 내용은 ‘ OR 1=1 -- 로  WHERE 절에 있는 싱글쿼터를 닫아주기 위한 싱글쿼터와 OR 1=1 라는 구문을 이용해 WHERE 절을 모두 참으로 만들고, -- 를 넣어줌으로 뒤의 구문을 모두 주석 처리 해주었다.
+
+매우 간단한 구문이지만, 결론적으로 Users 테이블에 있는 모든 정보를 조회하게 됨으로 써 가장 먼저 만들어진 계정으로 로그인에 성공하게 된다. 보통은 관리자 계정을 맨 처음 만들기 때문에 관리자 계정에 로그인 할 수 있게 된다. 관리자 계정을 탈취한 악의적인 사용자는 관리자의 권한을 이용해 또 다른 2차피해를 발생 시킬 수 있게 된다.
+
+<br><br>
+
+다른 예시로
+
+```
+SELECT * FROM member WHERE id = '[value1]' AND pw = '[value2]'
+
+SELECT * FROM member WHERE id = '[value1]' AND pw = '' or 1=1 --'
+```
+
+다른 사용자의 id를 알고 있다는 가정하에 ***' or 1=1 --*** 구문을 이용해서 pw 없이 접근이 가능하다.
+
+앞에 싱글쿼터는 다른 싱글쿼터(')로 닫아주고 주석(--)을 이용하고  or 1=1 은 참이 되어서 pw 없이 로그인이 가능하다.
+
+id만 같다면 뒤에 오는 pw는 무조건 참이 되니깐 말이다.
+
+---보통 처음에는 ' 를 하난 
+
+<br>
+
+### 공격구문
+
 ```
 '
 ' or 1=1 --
 ' or 1=0 --
-' and db_name() > 1 --
 ```
 
 <br>
