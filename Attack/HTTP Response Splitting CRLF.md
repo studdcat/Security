@@ -30,6 +30,15 @@ amount_1=1&milage_1=2910&uid=216&total_money=97000%0d%0a&total_milage=2910&total
 ">
 ```
 
+Example 3.
+
+공격구문
+```
+/main/main.asp?num=5 HTTP/1.1
+>>>
+/main/main.asp?num=5%0d%0aContentLength:%200%0d%0d%0a%0aHTTP/1.1%20200%20OK%0d%0aContent-Type:%20text/html%0d%0aContent-Length:%2019%0d%0a%0d%0a<html>Attack</html> HTTP/1.1
+```
+
 ## 대응방안
 1.HTTP 헤더에 입력되는 값에 대하여 개행문자 CR, LF를 필터링한다.
 ```
