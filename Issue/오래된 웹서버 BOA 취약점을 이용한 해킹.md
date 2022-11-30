@@ -6,6 +6,8 @@ https://www.bleepingcomputer.com/news/security/hackers-breach-energy-orgs-via-bu
 
 https://www.criminalip.io/asset/search?query=Boa%2F0.94.14rc21
 
+https://www.exploit-db.com/exploits/42290
+
 Boa는 2005년부터 단종 된 임베디드 애플리케이션에 적합한 오픈 소스 소형 웹 서버 입다.
 
 ---
