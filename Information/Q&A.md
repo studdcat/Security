@@ -31,3 +31,6 @@ https://noahlogs.tistory.com/35
 2. GET, POST 방식
    
 GET 과 POST 는 HTTP 메서드로 클라이언트에서 서버로 무언가 요청할 때 사용된다.
+
+<p>
+3. 피싱사이트 인터넷 상으로 올리는법?
