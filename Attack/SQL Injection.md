@@ -116,6 +116,20 @@ Example 1.
 
 <br>
 
+## 우회
+
+```
+문자열 결합 방법
+>>>
+Oracle 'apple'||'banana'
+Microsoft 'apple'+'banana'
+PostgreSQL 'apple'||'banana'
+Mysql 'apple'%20'banana'
+CONCAT('apple','banana')
+```
+
+<br>
+
 ## 대응방안
 ### # 매개변수 바인딩 & 저장프로시저 & prepared statement
 <br>
