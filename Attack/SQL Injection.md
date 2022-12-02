@@ -128,6 +128,13 @@ Mysql 'apple'%20'banana'
 CONCAT('apple','banana')
 ```
 
+```
+띄어쓰기 우회
++
+/**/
+%20
+```
+
 <br>
 
 ## 대응방안
