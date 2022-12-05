@@ -54,7 +54,6 @@ id만 같다면 뒤에 오는 pw는 무조건 참이 되니깐 말이다.
 ### 공격구문
 
 ```
-'
 ' or 1=1 --
 ' or 1=0 --
 ```
@@ -116,7 +115,7 @@ Example 1.
 
 <br>
 
-## 우회
+## 우회 bypass
 
 ```
 문자열 결합 방법
@@ -133,6 +132,15 @@ CONCAT('apple','banana')
 +
 /**/
 %20
+```
+
+```
+데이터베이스 버전 확인
+Oracle	SELECT banner FROM v$version
+        SELECT version FROM v$instance
+Microsoft	SELECT @@version
+PostgreSQL	SELECT version()
+MySQL	SELECT @@version
 ```
 
 <br>
@@ -159,3 +167,12 @@ prepared statement를 사용하는 경우엔는 효율을 높이기 위해 <stro
 <br>
 
 ### # 오류 메시지 출력 제한
+
+<br><br>
+
+---
+**dual?** 오라클, mysql 제공하는 테이블로 쉽게 말해서 더미 테이블이다. 단순한 계산부터, 산술연산, 함수결과 등 쉽게 확인 할수 있는 임시 테이블이다.
+
+```
+SELECT '사과', 과일 FROM dual
+```
