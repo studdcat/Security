@@ -4,3 +4,9 @@
 ```
 nmap [IP] -p 80 --script http-methods
 ```
+
+포트 스캔
+```
+nmap [IP]
+nmap -sT [IP]
+```
