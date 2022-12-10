@@ -51,7 +51,10 @@ https://poci.tistory.com/103
 
 ![](../img/Study%20Img/%5Bwebhacking%5Dold-03%20-%207.png)
 
+공백 때문에 애를 많이 먹었당 ㅜㅜ
+
 ```
+answer=' or 1=1--
 answer=' or 1=1--공백(%20)
 ```
 
