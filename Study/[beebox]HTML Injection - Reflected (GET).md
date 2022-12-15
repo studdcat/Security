@@ -1,4 +1,4 @@
-# [beebox]HTML Injection
+# [beebox]HTML Injection - Reflected (GET)
 
 HTML Injection은 HTML 필터링 없이 값을 그대로 가져다 쓰기 때문에 발생하며, 원치않는 내용을 보게하거나 사이트로 이동킨다.
 
