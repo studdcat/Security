@@ -71,7 +71,7 @@ while(t==1):
         t=0
 ```
 
-## 레인보우 테이블 제작하기 - SHA-1
+## SHA-1 레인보우 테이블 제작하기
 
 ```py
 from hashlib import sha1
