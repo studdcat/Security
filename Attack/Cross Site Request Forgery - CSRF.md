@@ -22,7 +22,7 @@ CSRF의 공격이 수행되기 위해서는 몇가지의 조건이 필요하다.
 
 <br>
 
-## :hocho: Offensive techniques
+## 🗡 Offensive techniques
 
 
 
