@@ -3,18 +3,22 @@
 
 <br>
 
-참고하면 좋은 사이트 목록
+## Best Sites
 
 0. https://www.google.com
 1. https://www.boannews.com
 2. https://www.youtube.com/@boanproject
-3. https://portswigger.net
-4. https://www.exploit-db.com
-5. https://cve.mitre.org
-6. https://www.criminalip.io
-7. https://dreamhack.io
+3. https://www.hahwul.com/
+4. https://portswigger.net
+5. https://www.exploit-db.com
+6. https://cve.mitre.org
+7. https://www.criminalip.io
+8. https://dreamhack.io
 
-사용하는 도구 목록
+<br>
+
+## Best Tools
+
 1. Git
 2. Visual Studio Code
 3. VMware
