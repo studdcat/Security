@@ -1,4 +1,8 @@
-# CSRF
+# Cross Site Request Forgery - CSRF
+
+## Reference
+
+<br>
 
 https://owasp.org/www-community/attacks/csrf
 
@@ -6,13 +10,26 @@ https://reflectoring.io/complete-guide-to-csrf/
 
 https://tibetsandfox.tistory.com/11
 
+https://www.hahwul.com/2022/10/19/the-csrf-is-dying/
+
 <br>
 
 ![](../img/csrf-process.png)
 
 <br>
 
-CSRF(Cross-Site Request Forgery)는 공격자가  사용자 권한을 이용하여 사용자가 현재 접속되어 있는 특정 웹 사이트에서 원치 않은 기능을 실행하게 하는 것이다. 
+## What is CSRF
+
+<br>
+
+CSRF는 쿠키의 동작 방식을 이용한 공격 방법으로 사용자의 세션 쿠키 또는 다른 인증정보를 이용하여 사용자 모르게 공격자가 의도한 서비스 요청을 처리하는 공격 방법을 의미합니다.
+
+CSRF(Cross-Site Request Forgery)는 공격자가 사용자 권한을 이용하여 사용자가 현재 접속되어 있는 특정 웹 사이트에서 원치 않은 기능을 실행하게 하는 것이다.
+
+- 공격코드가 삽입된 페이지에 접근 시 피해자 모르게 패스워드 변경
+- 공격코드가 삽입된 페이지에 관리 계정으로 접근 시 원격 코드 실행
+- 공격코드가 삽입된 페이지에 접근 시 게시글 작성, 댓글 작성 등등
+
 2008년에 발생한 옥션의 개인정보 유출사건에서도 관리자 계정을 탈취하는데 이 방법이 사용되었다. 공격의 난이도가 높지 않아 널리 사용되는 방법 중 하나다.
 
 img 태그도 GET 메소드를 사용해서 보내는 것이기 때문에 img를 이용할 수도 있다.
