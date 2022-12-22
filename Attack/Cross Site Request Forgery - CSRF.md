@@ -2,8 +2,6 @@
 
 ## Reference
 
-<br>
-
 https://owasp.org/www-community/attacks/csrf
 
 https://reflectoring.io/complete-guide-to-csrf/
@@ -19,8 +17,6 @@ https://www.hahwul.com/2022/10/19/the-csrf-is-dying/
 <br>
 
 ## What is CSRF
-
-<br>
 
 CSRF는 쿠키의 동작 방식을 이용한 공격 방법으로 사용자의 세션 쿠키 또는 다른 인증정보를 이용하여 사용자 모르게 공격자가 의도한 서비스 요청을 처리하는 공격 방법을 의미합니다.
 
