@@ -1,27 +1,26 @@
-# Security
-## Security Study Diary
+# Security Study Diary
 
 <br>
 
-## Best Sites
+## 🌼 Reference Sites
 
-0. https://www.google.com
-1. https://www.boannews.com
-2. https://www.youtube.com/@boanproject
-3. https://www.hahwul.com/
-4. https://portswigger.net
-5. https://www.exploit-db.com
-6. https://cve.mitre.org
-7. https://www.criminalip.io
-8. https://dreamhack.io
+- https://www.google.com
+- https://www.boannews.com
+- https://www.youtube.com/@boanproject
+- https://www.hahwul.com/
+- https://portswigger.net
+- https://www.exploit-db.com
+- https://cve.mitre.org
+- https://www.criminalip.io
+- https://dreamhack.io
 
 <br>
 
-## Best Tools
+## 🌻 My Tools
 
-1. Git
-2. Visual Studio Code
-3. VMware
-4. Burp Suite
-5. WireShark
-6. Picpick
+- Git
+- Visual Studio Code
+- VMware
+- Burp Suite
+- WireShark
+- Picpick
