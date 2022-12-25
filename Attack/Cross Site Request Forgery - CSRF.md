@@ -22,7 +22,7 @@ CSRF의 공격이 수행되기 위해서는 몇가지의 조건이 필요하다.
 
 <br>
 
-## ⚔ Offensive techniques
+## 🚩 Offensive techniques
 
 
 
@@ -36,7 +36,9 @@ CSRF의 공격이 수행되기 위해서는 몇가지의 조건이 필요하다.
 <img src = "/main/product_memo.asp?uid=178&memo=attack&point=1" width = "1" height = "1"/>
 ```
 
-## 대응방안
+<br>
+
+## 🛡 Denfensive techniques
 1. CAPCHA 사용, 이미지를 보여주고 그 이미지 해당하는 숫자, 문자 등을 고르는 것
 2. Referrer 검증법, 요청이 들어올 때 requset의 header에 담겨있는 referrer 값을 확인하여 같은 도메인에서 보낸 요청인지 검증하여 차단하는 방법
    
