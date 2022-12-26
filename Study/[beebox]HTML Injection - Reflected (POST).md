@@ -33,6 +33,7 @@ firstname=<h1>Success</h1>&lastname=<img%20src='http://192.168.200.177/bWAPP/ima
 
 ![](../img/Study%20Img/%5Bbeebox%5DHTML%20Injection%20(POST)%20-%209.png)
 
+<br>
 
 ## Level. medium
 
@@ -67,6 +68,8 @@ firstname=%253ch1%253eSuccess%253c/h1%253e&lastname=%253cimg%20src='http://192.1
 성공 !!!
 
 ![](../img/Study%20Img/%5Bbeebox%5DHTML%20Injection%20(POST)%20-%209.png)
+
+<br>
 
 ## Level. high
 

