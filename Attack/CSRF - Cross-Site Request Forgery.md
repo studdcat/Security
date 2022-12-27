@@ -1,4 +1,4 @@
-# Cross Site Request Forgery - CSRF
+# CSRF - Cross-Site Request Forgery 
 
 ![](../img/csrf-process.png)
 
